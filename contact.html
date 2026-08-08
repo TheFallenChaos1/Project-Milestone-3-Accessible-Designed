@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | My Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header id="main-header">
+    <div class="container nav">
+      <h2 class="logo">My Portfolio</h2>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container contact">
+    <h1>Get In Touch</h1>
+    <p class="intro">Feel free to reach out if you’d like to connect or collaborate.</p>
+
+    <div class="card contact-info">
+      <p><strong>Email:</strong> Jasonsmithgames@icloud.com</p>
+      <p><strong>GitHub:</strong> github.com/TheFallenChaos1</p>
+    </div>
+
+    <h2>Send a Message</h2>
+
+    <form id="contact-form">
+      <fieldset>
+        <legend>Contact Form</legend>
+
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+          <span class="error" id="name-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+          <span class="error" id="email-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+          <span class="error" id="message-error"></span>
+        </div>
+
+        <button type="submit" class="btn">Send Message</button>
+      </fieldset>
+    </form>
+  </section>
+
+  <script>
+    const form = document.getElementById('contact-form');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      document.getElementById('name-error').textContent = '';
+      document.getElementById('email-error').textContent = '';
+      document.getElementById('message-error').textContent = '';
+
+      let isValid = true;
+
+      if (document.getElementById('name').value.trim() === '') {
+        document.getElementById('name-error').textContent = 'Please enter your name.';
+        isValid = false;
+      }
+
+      if (document.getElementById('email').value.trim() === '') {
+        document.getElementById('email-error').textContent = 'Please enter your email.';
+        isValid = false;
+      }
+
+      if (document.getElementById('message').value.trim() === '') {
+        document.getElementById('message-error').textContent = 'Please enter a message.';
+        isValid = false;
+      }
+
+      if (isValid) {
+        alert('Message sent! (This is just a demo)');
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
